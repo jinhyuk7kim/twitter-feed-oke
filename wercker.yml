@@ -17,10 +17,10 @@ build:
 push-release:
   steps:
     - internal/docker-push:
-        username: aida16/minjee.lee@daum.net
-        password: Welcome1234!
-        repository: iad.ocir.io/aida16/twitter-feed
-        registry: https://iad.ocir.io
+        username: $DOCKER_USERNAME
+        password: $OCI_AUTH_TOKEN
+        repository: $DOCKER_REGISTRY/$DOCKER_REPO
+        registry: https://$DOCKER_REGISTRY/v2
         tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
         working-dir: /pipeline/source
         ports: 8080
